@@ -26,6 +26,8 @@ var tests = []test{
 	test{`array range (no index) selection`, `{"aKey":[11,22,33,44]}`, `$.aKey[1:1]+`, []Result{}},
 	test{`array range (no upper bound) selection`, `{"aKey":[11,22,33]}`, `$.aKey[1:]+`, []Result{newResult(`22`, JsonNumber, `aKey`, 1), newResult(`33`, JsonNumber, `aKey`, 2)}},
 
+	test{`key selection`, `{"aKey":"\"value\"", "bKey":"value"}`, `$.bKey+`, []Result{newResult(`"value"`, JsonString, `bKey`)}},
+
 	test{`empty array - try selection`, `{"aKey":[]}`, `$.aKey[1]+`, []Result{}},
 	test{`null selection`, `{"aKey":[null]}`, `$.aKey[0]+`, []Result{newResult(`null`, JsonNull, `aKey`, 0)}},
 	test{`empty object`, `{"aKey":{}}`, `$.aKey+`, []Result{newResult(`{}`, JsonObject, `aKey`)}},

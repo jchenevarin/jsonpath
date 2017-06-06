@@ -10,6 +10,7 @@ var jsonTests = []lexTest{
 	{"empty object", `{}`, []int{jsonBraceLeft, jsonBraceRight, jsonEOF}},
 	{"empty array", `[]`, []int{jsonBracketLeft, jsonBracketRight, jsonEOF}},
 	{"key string", `{"key" :"value"}`, []int{jsonBraceLeft, jsonKey, jsonColon, jsonString, jsonBraceRight, jsonEOF}},
+	{"key string with escaped content", `{"key" :"\"value\"","key2": "value2"}`, []int{jsonBraceLeft, jsonKey, jsonColon, jsonString, jsonComma, jsonKey, jsonColon, jsonString, jsonBraceRight, jsonEOF}},
 	{"multiple pairs", `{"key" :"value","key2" :"value"}`, []int{jsonBraceLeft, jsonKey, jsonColon, jsonString, jsonComma, jsonKey, jsonColon, jsonString, jsonBraceRight, jsonEOF}},
 	{"key number", `{"key" : 12.34e+56}`, []int{jsonBraceLeft, jsonKey, jsonColon, jsonNumber, jsonBraceRight, jsonEOF}},
 	{"key true", `{"key" :true}`, []int{jsonBraceLeft, jsonKey, jsonColon, jsonBool, jsonBraceRight, jsonEOF}},

@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/NodePrime/jsonpath"
+	"github.com/jchenevarin/jsonpath"
 	flag "github.com/ogier/pflag"
 )
 
